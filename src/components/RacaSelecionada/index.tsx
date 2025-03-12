@@ -16,10 +16,19 @@ interface RacaSelecionadaProps {
 class RacaSelecionada extends React.Component<RacaSelecionadaProps> {
   render() {
     const { raca } = this.props;
+    if (!raca.name) {
+      return null;
+    }
     return (
       <>
         <div className={styles.raca_selecionada}>
-          <img src={raca.imagem} alt={raca.name} />
+          <img 
+            src={raca.imagem} 
+            alt={raca.name}
+            onError={(e) => {
+              e.currentTarget.src = 'https://via.placeholder.com/400x300?text=Imagem+não+encontrada';
+            }}
+          />
         </div>
         <div className={styles.info}>
           <h1>{raca.name}</h1>
