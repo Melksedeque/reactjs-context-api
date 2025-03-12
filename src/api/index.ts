@@ -1,37 +1,49 @@
 import axios from "axios";
 
-const api = axios.create({
+const imagensApi = axios.create({
+  baseURL: "https://dog.ceo/api"
+});
+
+const sobreApi = axios.create({
   baseURL: "https://api.thedogapi.com/v1",
   headers: {
     "x-api-key": "live_97LgcKCUuEvxnXh54JqK4qqkSGE4wQBJNAcUAxjTbzTWXpI4cUoWPAePEtovZ9Av",
   },
 });
 
-interface RacaInfo {
-  name: string;
-  bred_for?: string;
-  breed_group?: string;
-  life_span?: string;
-  temperament?: string;
-  reference_image_id?: string;
-}
+import { RacaInfo } from './types';
 
 export const buscaSobreRacas = async (): Promise<RacaInfo[]> => {
-  const response = await api.get("/breeds");
-  return response.data;
+  try {
+    const response = await sobreApi.get("/breeds");
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao buscar informações sobre raças:", error);
+    throw new Error("Não foi possível obter informações sobre as raças");
+  }
 };
 
 export const buscaTodasRacas = async (): Promise<string[]> => {
-  const response = await api.get("/breeds");
-  return response.data.map((raca: RacaInfo) => raca.name.toLowerCase());
+  try {
+    const response = await imagensApi.get("/breeds/list/all");
+    return Object.keys(response.data.message)
+      .map(raca => raca.toLowerCase())
+      .sort();
+  } catch (error) {
+    console.error("Erro ao buscar lista de raças:", error);
+    throw new Error("Não foi possível obter a lista de raças");
+  }
 };
 
 export const buscaImagemPorRaca = async (raca: string): Promise<string> => {
-  const response = await api.get("/images/search", {
-    params: {
-      breed_name: raca,
-      limit: 1,
-    },
-  });
-  return response.data[0].url;
+  try {
+    const response = await imagensApi.get(`/breed/${raca.toLowerCase()}/images/random`);
+    return response.data.message;
+  } catch (error) {
+    if (axios.isAxiosError(error) && error.response?.status === 404) {
+      throw new Error(`Não foi possível encontrar imagens para a raça ${raca}`);
+    }
+    console.error("Erro ao buscar imagem da raça:", error);
+    throw error;
+  }
 };
