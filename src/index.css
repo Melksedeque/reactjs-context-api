@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+:root {
+  --azul: #8ac6fd;
+  --azul-claro: #f0ffff;
+  --verde-agua: #7bffff;
+  --branco: #fff;
+  --rosa: #ffa5ae;
+  --rosa-claro: #ffd7df;
+  --cinza-claro: #efefef;
+  --laranja: #fe5f55;
+  --marrom: #311e10;
+  --fonte-padrao: "Open Sans", sans-serif;
+}
+
+body {
+  background-color: var(--azul-claro);
+  font-family: var(--fonte-padrao);
+}
+
+.container {
+  padding: 30px;
+  margin: 0 auto;
+}

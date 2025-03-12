@@ -1,0 +1,22 @@
+.lista_racas {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.lista_racas__item {
+  background-color: var(--rosa);
+  border: 2px solid var(--rosa-claro);
+  border-radius: 5px;
+  color: var(--branco);
+  cursor: pointer;
+  flex-grow: 1;
+  margin: 10px;
+  padding: 15px;
+  text-align: center;
+}
+
+.lista_racas__item:hover {
+  background-color: var(--rosa-claro);
+  color: var(--rosa);
+}

@@ -1,0 +1,8 @@
+.status {
+  background-color: var(--branco);
+  padding: 10px;
+  display: inline-block;
+  font-weight: bold;
+  border: 1px solid var(--rosa-claro);
+  box-shadow: 0 0 8px rgba(var(--rosa-claro), 0.5);
+}
