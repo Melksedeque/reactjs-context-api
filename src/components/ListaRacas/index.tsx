@@ -23,7 +23,7 @@ class ListaRacas extends React.Component<ListaRacasProps> {
           <li
             key={raca.name}
             onClick={() => selecionaRaca(raca.name)}
-            className="lista-racas__item"
+            className={styles.lista_racas__item}
           >
             {raca.name}
           </li>
