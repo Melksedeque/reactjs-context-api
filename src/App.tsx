@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { RacaDetalhada } from "./api/types";
+import React from "react";
 
 import { buscaSobreRacas, buscaImagemPorRaca, buscaTodasRacas } from "./api";
 import Cabecalho from "@/components/Cabecalho/";
