@@ -4,7 +4,7 @@ import { buscaSobreRacas, buscaImagemPorRaca, buscaTodasRacas } from "./api";
 import Cabecalho from "./components/Cabecalho";
 import Raca from "./components/Raca";
 import ListaRacas from "./components/ListaRacas";
-import StatusContext from "./context/StatusContext";
+import StatusContext from "./context/status";
 
 interface IRaca {
   name: string;
