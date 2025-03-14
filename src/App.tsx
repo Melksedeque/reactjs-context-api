@@ -1,11 +1,12 @@
 import React from "react";
 
 import { buscaSobreRacas, buscaImagemPorRaca, buscaTodasRacas } from "./api";
-import Cabecalho from "@/components/Cabecalho/";
-import Raca from "@/components/Raca/";
-import ListaRacas from "@/components/ListaRacas/";
+import Cabecalho from "./components/Cabecalho";
+import Raca from "./components/Raca";
+import ListaRacas from "./components/ListaRacas";
+import StatusContext from "./context/StatusContext";
 
-interface Raca {
+interface IRaca {
   name: string;
   bred_for?: string;
   breed_group?: string;
@@ -14,16 +15,16 @@ interface Raca {
   imagem?: string;
 }
 
-interface AppState {
-  racas: Raca[];
+interface IAppState {
+  racas: IRaca[];
   racaSelecionada: Partial<Raca>;
   status: string;
 }
 
-interface AppProps {}
+interface IAppProps {}
 
-class App extends React.Component<AppProps, AppState> {
-  constructor(props: AppProps) {
+class App extends React.Component<IAppProps, IAppState> {
+  constructor(props: IAppProps) {
     super(props);
     this.state = {
       racas: [],
@@ -49,7 +50,7 @@ class App extends React.Component<AppProps, AppState> {
       );
   }
 
-  carregaListaRacas(sobreRacas: Raca[]): void {
+  carregaListaRacas(sobreRacas: IRaca[]): void {
     buscaTodasRacas().then((racas) => {
       const listaRacasMostradas = sobreRacas.filter((sobre) =>
         racas.includes(sobre.name.toLowerCase())
@@ -88,7 +89,9 @@ class App extends React.Component<AppProps, AppState> {
   render() {
     return (
       <div className="container">
-        <Cabecalho status={this.state.status} />
+        <StatusContext>
+          <Cabecalho />
+        </StatusContext>
         <Raca raca={this.state.racaSelecionada} />
         <ListaRacas
           racas={this.state.racas}
