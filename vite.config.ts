@@ -7,9 +7,9 @@ export default defineConfig({
   build: {
     cssMinify: true,
   },
-  resolve: {
-    alias: {
-      "@": "/src",
-    },
-  },
+  // resolve: {
+  //   alias: {
+  //     components: "/src/components",
+  //   },
+  // },
 });
