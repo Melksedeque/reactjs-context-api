@@ -1,7 +1,7 @@
+import Status from "../Status";
 import styles from "./Cabecalho.module.css";
 
 import React from "react";
-import Status from "@/components/Status";
 
 interface CabecalhoProps {
   status: string;
