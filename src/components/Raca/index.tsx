@@ -1,8 +1,8 @@
 import React from "react";
-import RacaSelecionada from "@/components/RacaSelecionada";
-import RacaNaoSelecionada from "@/components/RacaNaoSelecionada";
+import RacaSelecionada from "../RacaSelecionada";
+import RacaNaoSelecionada from "../RacaNaoSelecionada";
 
-interface RacaProps {
+interface IRacaProps {
   raca: {
     name?: string;
     bred_for?: string;
@@ -13,7 +13,7 @@ interface RacaProps {
   };
 }
 
-class Raca extends React.Component<RacaProps> {
+class Raca extends React.Component<IRacaProps> {
   render() {
     const { raca } = this.props;
     return (
