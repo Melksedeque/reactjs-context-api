@@ -2,4 +2,9 @@
   display: block;
   height: 150px;
   margin: 0 auto;
+  text-align: center;
+}
+
+.raca_nao_selecionada h2 {
+  color: var(--rosa);
 }
