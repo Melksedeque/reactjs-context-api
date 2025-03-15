@@ -1,5 +1,5 @@
 .raca_selecionada {
-  width: 300px;
+  width: 400px;
   margin: 0 auto;
   border: 4px solid var(--rosa);
   border-radius: 5px;
@@ -13,7 +13,18 @@
   display: none;
 }
 
-.raca_selecionada__nome {
+.raca_selecionada .imagem_raca {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.raca_selecionada .imagem_raca img {
+  display: block;
+  object-fit: contain;
+}
+
+.raca_selecionada .name {
   margin: 0;
   background-color: var(--rosa);
   color: var(--branco);
@@ -22,7 +33,7 @@
   font-weight: normal;
 }
 
-.raca_selecionada__info {
+.raca_selecionada .info {
   background-color: var(--rosa);
   margin: 0;
   color: var(--branco);
