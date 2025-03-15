@@ -1,15 +1,12 @@
 import styles from "./Status.module.css";
+import StatusContext from "../../context/status";
 
-import React from "react";
-
-interface StatusProps {
-  status: string;
-}
-
-class Status extends React.Component<StatusProps> {
-  render() {
-    return <p className={styles.status}>{this.props.status}</p>;
-  }
-}
+const Status = () => {
+  return (
+    <StatusContext.Consumer>
+      {(status) => <p className={styles.status}>{status}</p>}
+    </StatusContext.Consumer>
+  );
+};
 
 export default Status;
