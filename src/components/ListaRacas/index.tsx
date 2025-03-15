@@ -1,7 +1,5 @@
 import styles from "./ListaRacas.module.css";
 
-import React from "react";
-
 interface ListaRacasProps {
   racas: Array<{
     name: string;
@@ -14,23 +12,20 @@ interface ListaRacasProps {
   selecionaRaca: (raca: string) => void;
 }
 
-class ListaRacas extends React.Component<ListaRacasProps> {
-  render() {
-    const { racas, selecionaRaca } = this.props;
-    return (
-      <ul className={styles.lista_racas}>
-        {racas.map((raca) => (
-          <li
-            key={raca.name}
-            onClick={() => selecionaRaca(raca.name)}
-            className={styles.lista_racas__item}
-          >
-            {raca.name}
-          </li>
-        ))}
-      </ul>
-    );
-  }
-}
+const ListaRacas = ({ racas, selecionaRaca }: ListaRacasProps) => {
+  return (
+    <ul className={styles.lista_racas}>
+      {racas.map((raca) => (
+        <li
+          key={raca.name}
+          onClick={() => selecionaRaca(raca.name)}
+          className={styles.lista_racas__item}
+        >
+          {raca.name}
+        </li>
+      ))}
+    </ul>
+  );
+};
 
 export default ListaRacas;
