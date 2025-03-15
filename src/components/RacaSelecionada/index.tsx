@@ -18,6 +18,13 @@ const RacaSelecionada = ({ raca }: RacaSelecionadaProps) => {
 
   return (
     <div className={styles.raca_selecionada}>
+      <div className={styles.info}>
+        <h1 className={styles.name}>{raca.name}</h1>
+        {raca.bred_for && <p>Criado para: {raca.bred_for}</p>}
+        {raca.breed_group && <p>Grupo: {raca.breed_group}</p>}
+        {raca.life_span && <p>Tempo médio de vida: {raca.life_span}</p>}
+        {raca.temperament && <p>Temperamento: {raca.temperament}</p>}
+      </div>
       <figure className={styles.imagem_raca}>
         <img
           src={raca.imagem}
@@ -31,13 +38,6 @@ const RacaSelecionada = ({ raca }: RacaSelecionadaProps) => {
           <em>Imagem de {raca.name}</em>
         </figcaption>
       </figure>
-      <div className={styles.info}>
-        <h1 className={styles.name}>{raca.name}</h1>
-        {raca.bred_for && <p>Criado para: {raca.bred_for}</p>}
-        {raca.breed_group && <p>Grupo: {raca.breed_group}</p>}
-        {raca.life_span && <p>Tempo médio de vida: {raca.life_span}</p>}
-        {raca.temperament && <p>Temperamento: {raca.temperament}</p>}
-      </div>
     </div>
   );
 };
