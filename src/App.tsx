@@ -45,7 +45,7 @@ function App() {
 
   return (
     <div className="container">
-      <StatusContext.Provider value="online">
+      <StatusContext.Provider value="A imagem será sempre diferente, pode clicar quantas vezes quiser!">
         <Cabecalho />
       </StatusContext.Provider>
       <div className="main-container">
