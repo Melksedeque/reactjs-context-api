@@ -45,7 +45,7 @@ function App() {
 
   return (
     <div className="container">
-      <StatusContext.Provider value={this.state.status}>
+      <StatusContext.Provider value="online">
         <Cabecalho />
       </StatusContext.Provider>
       <div className="main-container">
